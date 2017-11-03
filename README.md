@@ -1,0 +1,1 @@
+# alt-contador-exportacao-texto
