@@ -1,7 +1,7 @@
 {
   "name": "alt-contador-exportacao-texto",
   "main": "dist/alt-contador-exportacao-texto.min.js",
-  "version": "0.0.15",
+  "version": "0.0.1",
   "homepage": "https://github.com/dsn-nimbus/alt-contador-exportacao-texto.git",
   "authors": [
     "dsn-nimbus <ericdantas0@gmail.com>"
