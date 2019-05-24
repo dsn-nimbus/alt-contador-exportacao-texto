@@ -55,14 +55,14 @@
                 _valor = "\"" + _valor + "\"";
 
                 if (VALOR_MONETARIO_PATTERN.test(_valor) && /valor/.test(prop)) {
-                  _valor = "\"" + VALOR_MONETARIO_PATTERN.exec(_valor).join().replace(".", ",") + "\"";
+                  _valor = "\"" + VALOR_MONETARIO_PATTERN.exec(_valor).join().replace(".", ",").replace(/\n/ig, '').replace(/\u21b5/g,'') + "\"";
                 }
               }
               else {
                   if (NUMERO_PATTERN.test(_valor)) {
-                    _valor = "\"" + String(_valor).replace(".", ",") + "\"";
+                    _valor = "\"" + String(_valor).replace(".", ",").replace(/\n/ig, '').replace(/\u21b5/g,'') + "\"";
                   } else {
-                    _valor = "\""+_valor+"\"";
+                    _valor = "\""+_valor.replace(/\n/ig, '').replace(/\u21b5/g,'')+"\"";
                   }
               }
             }
@@ -88,14 +88,14 @@
                     _valorCentroDeCusto = "\"" + _valorCentroDeCusto + "\"";
 
                     if (VALOR_MONETARIO_PATTERN.test(_valorCentroDeCusto) && /valor/.test(prop)) {
-                      _valorCentroDeCusto = "\"" + VALOR_MONETARIO_PATTERN.exec(_valorCentroDeCusto).join().replace(".", ",") + "\"";
+                      _valorCentroDeCusto = "\"" + VALOR_MONETARIO_PATTERN.exec(_valorCentroDeCusto).join().replace(".", ",").replace(/\n/ig, '') + "\"";
                     }
                   }
                   else {
                     if (NUMERO_PATTERN.test(_valorCentroDeCusto)) {
-                      _valorCentroDeCusto = "\"" + String(_valorCentroDeCusto).replace(".", ",") + "\"";
+                      _valorCentroDeCusto = "\"" + String(_valorCentroDeCusto).replace(".", ",").replace(/\n/ig, '').replace(/\u21b5/g,'') + "\"";
                     } else {
-                      _valorCentroDeCusto = "\""+_valorCentroDeCusto+"\"";
+                      _valorCentroDeCusto = "\""+_valorCentroDeCusto.replace(/\n/ig, '').replace(/\u21b5/g,'')+"\"";
                     }
                   }
                 }
