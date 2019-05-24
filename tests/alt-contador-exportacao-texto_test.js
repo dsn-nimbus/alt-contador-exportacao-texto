@@ -158,6 +158,31 @@ describe('alt.contador.exportacao-texto', function() {
           expect(_resultadoParsed).toEqual(_resposta);
         });
 
+        it('deve fazer o parse corretamente - não é arquivo contábil - possui caracter de quebra de linha', function() {
+          var _propriedades = [
+            'a', 'b', 'c'
+          ];
+
+          var _propriedadesCentroDeCusto = [];
+
+          var _info = [
+            {a: 1, b: 2, c: 3},
+            {a: 4, b: 5, c: '6↵'},
+            {a: 7, b: 8, c: 9},
+          ];
+
+          var _resposta = '"1";"2";"3"%0A"4";"5";"6"%0A"7";"8";"9"';
+
+          var _arquivoContabil = false;
+
+          var _m = new _AltContadorExportacaoTextoModel(_propriedades, _propriedadesCentroDeCusto, _info, _arquivoContabil);
+
+          var _parser = new _AltContadorExportacaoTextoParser(_m);
+          var _resultadoParsed = _parser.parseArquivo();
+
+          expect(_resultadoParsed).toEqual(_resposta);
+        });
+
         it('deve fazer o parse corretamente - não é arquivo contábil e tem separador diferente de ;', function() {
           var _propriedades = [
             'a', 'b', 'c'
